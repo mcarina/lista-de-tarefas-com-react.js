@@ -11,3 +11,6 @@
 > <h4>Marcação</h4>
 <img src="https://user-images.githubusercontent.com/102268481/208120000-b3044ca0-03cb-4da1-9a24-13f42888c6f4.png" width="500px">
 
+> <h4>Anotações</h4>
+<p>A rota com o mesmo nome da página "http://localhost:3000/anotacoes"</p>
+<img src="https://user-images.githubusercontent.com/102268481/208216322-4e69d878-ef14-4a52-a1c4-3b5ed8cb5aab.png" width="500px">
