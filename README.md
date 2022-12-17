@@ -1,5 +1,5 @@
 <h3>###Lista de Tarefas com React.js</h3>
-<p>Possível remover após finalizada, por uma marcação e caso queira também</p>
+<p>Possível remover após finalizada, por uma marcação e caso queira também fazer anotações</p>
 
 <img src="https://user-images.githubusercontent.com/102268481/208117810-1f7b894f-85db-4e6d-87c9-188a2c96d274.png" width="750px">
 
