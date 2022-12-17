@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import {v4 as uuid} from 'uuid'
-import { BrowserRouter as Router} from 'react-router-dom'
+import { BrowserRouter as Router, Route} from 'react-router-dom'
+
 
 //components
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
 import Header from './components/Header'
+import TaskDetails from './components/TaskDetails'
 
 //stilos
 import './App.css'
@@ -24,6 +27,18 @@ const App = () => {
     },
 
   ])
+
+	useEffect(() => {
+		const fetchTasks = async () => {
+			const { data } = await axios.get(
+				"https://jsonplaceholder.cypress.io/todos?_limit=10"
+			);
+
+			setTask(data);
+		};
+
+		fetchTasks();
+	}, []);
 
   //criando id aleatorias e alternância entre "true" e "false" 
 	const handleTaskClick = (taskId) => {
@@ -58,16 +73,28 @@ const App = () => {
 
   }
 
+
   return (
-            <div className="container">
-              <Header />
-                    <AddTask handleTaskAddition={handleTaskAddition} />
-                    <Tasks
-                      tasks={tasks}
-                      handleTaskClick={handleTaskClick}
-                      handleTaskDeletion={handleTaskDeletion}
-                    />
-            </div>
+    <Router>
+      <div className="container">
+        <Route
+        path='/'
+        exact render={()=>(
+          <>
+            <Header />
+            <AddTask handleTaskAddition={handleTaskAddition} />
+            <Tasks
+              tasks={tasks}
+              handleTaskClick={handleTaskClick}
+              handleTaskDeletion={handleTaskDeletion}/>
+          </>
+        )}
+        />
+        <Route path="/:anotacoes" exact component={TaskDetails}/>
+      </div>
+
+    </Router>
+
   )
 }
 
